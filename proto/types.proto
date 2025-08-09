@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+option go_package = "github.com/fayob/blockchain/proto";
+
+message Block {
+  Header header = 1;
+  repeated Transaction transactions = 2;
+}
+
+message Header {
+  int32 version = 1;
+  int32 height = 2;
+  bytes previous_hash = 3;
+  bytes merkle_root = 4;
+  int64 timestamp = 5;
+  bytes nonce = 6;
+}
+
+message Transaction {}
