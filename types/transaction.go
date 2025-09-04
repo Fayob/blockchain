@@ -29,6 +29,7 @@ func VerifyTransaction(tx *proto.Transaction) bool {
 			pubKey = crypto.PublicKeyFromBytes(input.PublicKey)
 		)
 
+		input.Signature = nil
 		if !sig.Verify(pubKey, HashTransaction(tx)) {
 			return false
 		}
